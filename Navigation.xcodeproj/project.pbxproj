@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06C96E28818A5100494A08 /* SceneDelegate.swift */; };
 		FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */; };
 		FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2C287F202100972DA9 /* ProfileViewController.swift */; };
 		FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE02287ED70C00D07799 /* AppDelegate.swift */; };
@@ -15,11 +16,11 @@
 		FA38CE0F287ED70E00D07799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */; };
 		FA9B7CA0288067D70020EF5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
-		FAF51F98288008AB003A1397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF51F97288008AB003A1397 /* SceneDelegate.swift */; };
 		FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF51F9928804221003A1397 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA06C96E28818A5100494A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA32BF2C287F202100972DA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA38CDFF287ED70C00D07799 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,7 +31,6 @@
 		FA38CE10287ED70E00D07799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B7C9F288067D70020EF5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		FAF51F97288008AB003A1397 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/SceneDelegate.swift"; sourceTree = "<group>"; };
 		FAF51F9928804221003A1397 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
-				FAF51F97288008AB003A1397 /* SceneDelegate.swift */,
+				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
 				FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */,
 				FAF51F9928804221003A1397 /* PostViewController.swift */,
 				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */,
-				FAF51F98288008AB003A1397 /* SceneDelegate.swift in Sources */,
+				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
