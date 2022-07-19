@@ -16,8 +16,10 @@ class FeedViewController: UIViewController {
         button.addTarget(self, action: #selector(self.didTabButton), for: .touchUpInside)
         return button
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "Лента заголовок"
         
         var tabBarItem = UITabBarItem()
