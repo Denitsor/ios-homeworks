@@ -14,6 +14,7 @@
 		FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE06287ED70C00D07799 /* ViewController.swift */; };
 		FA38CE0C287ED70E00D07799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0B287ED70E00D07799 /* Assets.xcassets */; };
 		FA38CE0F287ED70E00D07799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */; };
+		FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CA307288701C100A65993 /* ProfileHeaderView.swift */; };
 		FA9B7CA0288067D70020EF5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
 		FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF51F9928804221003A1397 /* PostViewController.swift */; };
@@ -29,6 +30,7 @@
 		FA38CE0B287ED70E00D07799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA38CE0E287ED70E00D07799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA38CE10287ED70E00D07799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6CA307288701C100A65993 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FA9B7C9F288067D70020EF5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FAF51F9928804221003A1397 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -69,14 +71,23 @@
 				FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */,
 				FAF51F9928804221003A1397 /* PostViewController.swift */,
 				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
-				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
 				FA38CE06287ED70C00D07799 /* ViewController.swift */,
 				FA9B7C9F288067D70020EF5E /* Post.swift */,
+				FA6CA309288701EA00A65993 /* Profile */,
 				FA38CE0B287ED70E00D07799 /* Assets.xcassets */,
 				FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */,
 				FA38CE10287ED70E00D07799 /* Info.plist */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FA6CA309288701EA00A65993 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
+				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
+				FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */,
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
 				FA9B7CA0288067D70020EF5E /* Post.swift in Sources */,
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,

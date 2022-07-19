@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
      
         guard let wc = (scene as? UIWindowScene) else { return }
@@ -25,8 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let profileNavigationController = UINavigationController(rootViewController: profile)
         
         let tabBarController = UITabBarController()
+        lenta.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0 )
+        profile.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person.fill"), tag: 0 )
         tabBarController.viewControllers = [lentaNavigationController, profileNavigationController]
-        tabBarController.tabBar.backgroundColor = .black
+        tabBarController.tabBar.backgroundColor = .white
         self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
     }
