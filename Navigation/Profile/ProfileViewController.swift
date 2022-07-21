@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Профиль заголовок"
         
-
         self.view.backgroundColor = .lightGray
         self.view.addSubview(self.profileHeaderView)
     }
