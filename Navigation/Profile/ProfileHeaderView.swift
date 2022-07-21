@@ -13,6 +13,7 @@ class ProfileHeaderView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "detectlogo")
         imageView.backgroundColor = .darkGray
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
@@ -22,6 +23,7 @@ class ProfileHeaderView: UIView {
         userName.text = "Detect24"
         userName.textColor = .black
         userName.font = UIFont.boldSystemFont(ofSize: 18)
+        userName.translatesAutoresizingMaskIntoConstraints = false
         
         return userName
     }()
@@ -33,6 +35,7 @@ class ProfileHeaderView: UIView {
         userStatus.text = self.statusText ?? "Делаю ДЗ"
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
+        userStatus.translatesAutoresizingMaskIntoConstraints = false
         
         return userStatus
     }()
@@ -43,6 +46,7 @@ class ProfileHeaderView: UIView {
         statusField.textColor = .black
         statusField.font = UIFont.systemFont(ofSize: 15)
         statusField.addTarget(self, action: #selector(self.statusTextChanged), for: .editingChanged)
+        statusField.translatesAutoresizingMaskIntoConstraints = false
         
         return statusField
     }()
@@ -71,40 +75,31 @@ class ProfileHeaderView: UIView {
         button.backgroundColor = .systemBlue
         button.setTitle("Изменить статус", for: .normal)
         button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.avatarImage.frame = CGRect(x: 16, y: 108, width: 96, height: 96)
         self.avatarImage.layer.cornerRadius = self.avatarImage.frame.height / 2
         self.avatarImage.clipsToBounds = true
         self.avatarImage.layer.borderWidth = 3
         self.avatarImage.layer.borderColor = UIColor.white.cgColor
         
-        self.userName.frame = CGRect(x: 128, y: 119, width: 300, height: 18)
-        
-        self.userStatus.frame = CGRect(x: 128, y: 172, width: 300, height: 14)
-        
-        let textFieldWidth = self.frame.width - 144
-        self.statusField.frame = CGRect(x: 128, y: 194, width: textFieldWidth, height: 40)
         self.statusField.layer.cornerRadius = 12
         self.statusField.layer.borderWidth = 1
         self.statusField.layer.borderColor = UIColor.black.cgColor
         
-        let buttonWidth = self.frame.width - 32
-        self.button.frame = CGRect(x: 16, y: 242, width: buttonWidth, height: 50)
         self.button.layer.cornerRadius = 4
         self.button.layer.shadowOffset = .init(width: 4, height: 4)
         self.button.layer.shadowRadius = 4
@@ -119,15 +114,37 @@ class ProfileHeaderView: UIView {
         self.addSubview(self.userStatus)
         self.addSubview(self.statusField)
         self.addSubview(self.button)
+        
+        NSLayoutConstraint.activate([        
+            self.avatarImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            self.avatarImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.avatarImage.widthAnchor.constraint(equalToConstant: 96),
+            self.avatarImage.heightAnchor.constraint(equalToConstant: 96),
+
+            self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
+            self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+
+            self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
+            self.userStatus.leadingAnchor.constraint(equalTo: self.userName.leadingAnchor),
+
+            self.statusField.topAnchor.constraint(equalTo: self.userStatus.bottomAnchor),
+            self.statusField.leadingAnchor.constraint(equalTo: self.userStatus.leadingAnchor),
+            self.statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.statusField.heightAnchor.constraint(equalToConstant: 40),
+
+            self.button.topAnchor.constraint(equalTo: self.statusField.bottomAnchor, constant: 10),
+            self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.button.heightAnchor.constraint(equalToConstant: 50),
+            self.button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
+            self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+        ])
     }
     
     @objc private func buttonPressed() {
-//        self.statusText = statusField.text
         userStatus.text = statusField.text
-//        print(self.statusText!, "button")
     }
     @objc func statusTextChanged(_ textField: UITextField) {
         self.statusText = statusField.text
-//        print(self.statusText!)
     }
 }
