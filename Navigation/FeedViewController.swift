@@ -22,9 +22,6 @@ class FeedViewController: UIViewController {
         
         self.navigationItem.title = "Лента заголовок"
         
-        var tabBarItem = UITabBarItem()
-        tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "list.bullet.rectangle.fill"), tag: 0 )
-        self.tabBarItem = tabBarItem
         self.view.backgroundColor = .cyan
         self.view.addSubview(self.button)
         self.button.frame = CGRect(x: 120, y: 120, width: 200, height: 50)
