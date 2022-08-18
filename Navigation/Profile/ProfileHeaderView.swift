@@ -41,34 +41,16 @@ class ProfileHeaderView: UIView {
     }()
     
     private lazy var statusField: UITextField = {
-        let statusField = TextFieldWithPadding()
+        let statusField = UITextField()
         statusField.backgroundColor = .white
         statusField.textColor = .black
         statusField.font = UIFont.systemFont(ofSize: 15)
         statusField.addTarget(self, action: #selector(self.statusTextChanged), for: .editingChanged)
         statusField.translatesAutoresizingMaskIntoConstraints = false
-        
+        statusField.addPaddingLeft(20)
         return statusField
     }()
     
-    class TextFieldWithPadding: UITextField {
-        var textPadding = UIEdgeInsets(
-            top: 10,
-            left: 20,
-            bottom: 10,
-            right: 20
-        )
-
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.textRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
-
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.editingRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
-    }
     
     private lazy var button: UIButton = {
         let button = UIButton()

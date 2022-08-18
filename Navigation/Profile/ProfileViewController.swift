@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Профиль заголовок"
@@ -30,6 +30,11 @@ class ProfileViewController: UIViewController {
         self.view.backgroundColor = .lightGray
         self.view.addSubview(self.profileHeaderView)
         self.view.addSubview(self.button)
+        
+        self.setupViewProfile()
+    }
+    
+    private func setupViewProfile() {
         
         NSLayoutConstraint.activate([
             self.profileHeaderView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

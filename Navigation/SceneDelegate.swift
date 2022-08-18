@@ -16,9 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let wc = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: wc)
-//        let lenta = UINavigationController(rootViewController: LentaViewController())
         let lenta = FeedViewController()
-        let profile = ProfileViewController()
+        let profile = LogInViewController()
         
         let lentaNavigationController = UINavigationController(rootViewController: lenta)
         let profileNavigationController = UINavigationController(rootViewController: profile)

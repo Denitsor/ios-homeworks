@@ -48,12 +48,14 @@ class FeedViewController: UIViewController {
         self.view.addSubview(btnStack)
         self.btnStack.addArrangedSubview(self.button)
         self.btnStack.addArrangedSubview(self.button2)
-        
+        self.setupFeedView()
+    }
+    
+    private func setupFeedView() {
         NSLayoutConstraint.activate([
             self.btnStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.btnStack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
-        
     }
     
     @objc private func didTabButton() {

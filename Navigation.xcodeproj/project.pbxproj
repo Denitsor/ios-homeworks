@@ -17,6 +17,7 @@
 		FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CA307288701C100A65993 /* ProfileHeaderView.swift */; };
 		FA9B7CA0288067D70020EF5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
+		FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */; };
 		FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF51F9928804221003A1397 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		FA6CA307288701C100A65993 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FA9B7C9F288067D70020EF5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FAF51F9928804221003A1397 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 			children = (
 				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
 				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
+				FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
 				FA9B7CA0288067D70020EF5E /* Post.swift in Sources */,
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,
+				FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */,
 				FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
