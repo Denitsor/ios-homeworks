@@ -14,7 +14,6 @@ class ProfileHeaderView: UIView {
         imageView.image = UIImage(named: "detectlogo")
         imageView.backgroundColor = .darkGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
@@ -24,7 +23,6 @@ class ProfileHeaderView: UIView {
         userName.textColor = .black
         userName.font = UIFont.boldSystemFont(ofSize: 18)
         userName.translatesAutoresizingMaskIntoConstraints = false
-        
         return userName
     }()
     
@@ -36,7 +34,6 @@ class ProfileHeaderView: UIView {
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
         userStatus.translatesAutoresizingMaskIntoConstraints = false
-        
         return userStatus
     }()
     
@@ -58,7 +55,6 @@ class ProfileHeaderView: UIView {
         button.setTitle("Изменить статус", for: .normal)
         button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     

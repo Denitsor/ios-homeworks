@@ -60,7 +60,7 @@ class FeedViewController: UIViewController {
     
     @objc private func didTabButton() {
         let postView = PostViewController()
-        postView.post = Post(postTitle: "Первый пост")
+//        postView.post = Post(postTitle: "Первый пост")
         self.navigationController?.pushViewController(postView, animated: true)
     }
 }
