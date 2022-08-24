@@ -9,23 +9,6 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
-    private lazy var postContentStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-//        stackView.distribution = .fillProportionally
-//        stackView.alignment = .fill
-        stackView.spacing = 16
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    private lazy var postFooterStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 16
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     private lazy var authorPost: UILabel = {
         let lable = UILabel()
         lable.backgroundColor = .clear
@@ -69,6 +52,7 @@ class PostTableViewCell: UITableViewCell {
         let views = UILabel()
         views.backgroundColor = .clear
         views.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        views.textAlignment = .right
         views.text = "Views:"
         views.textColor = .black
         views.translatesAutoresizingMaskIntoConstraints = false
@@ -104,33 +88,36 @@ class PostTableViewCell: UITableViewCell {
     private func setupView() {
         self.contentView.backgroundColor = .white
         
-        self.contentView.addSubview(self.postContentStack)
-        self.contentView.addSubview(self.postFooterStack)
-        self.postContentStack.addArrangedSubview(self.authorPost)
-        self.postContentStack.addArrangedSubview(self.imagePost)
-        self.postContentStack.addArrangedSubview(self.descriptionPost)
-        self.postFooterStack.addArrangedSubview(self.likesPost)
-        self.postFooterStack.addArrangedSubview(self.viewsPost)
+        self.contentView.addSubview(self.authorPost)
+        self.contentView.addSubview(self.imagePost)
+        self.contentView.addSubview(self.descriptionPost)
+        self.contentView.addSubview(self.likesPost)
+        self.contentView.addSubview(self.viewsPost)
         
         NSLayoutConstraint.activate([
-            self.postContentStack.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
-            self.postContentStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            self.postContentStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
             
-//            self.authorPost.topAnchor.constraint(equalTo: self.postContentStack.topAnchor),
-//            self.authorPost.bottomAnchor.constraint(equalTo: self.postContentStack.bottomAnchor, constant: 0),
+            self.authorPost.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+            self.authorPost.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.authorPost.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
 
-//            self.imagePost.topAnchor.constraint(equalTo: self.authorPost.bottomAnchor),
-//            self.imagePost.leadingAnchor.constraint(equalTo: self.postContentStack.leadingAnchor),
-//            self.imagePost.trailingAnchor.constraint(equalTo: self.postContentStack.trailingAnchor),
+            self.imagePost.topAnchor.constraint(equalTo: self.authorPost.bottomAnchor, constant: 12),
+            self.imagePost.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.imagePost.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.imagePost.heightAnchor.constraint(equalTo: self.imagePost.widthAnchor),
             
-//            self.descriptionPost.topAnchor.constraint(equalTo: self.imagePost.bottomAnchor, constant: 16),
-//            self.descriptionPost.leadingAnchor.constraint(equalTo: self.postContentStack.leadingAnchor, constant: 16),
+            self.descriptionPost.topAnchor.constraint(equalTo: self.imagePost.bottomAnchor, constant: 16),
+            self.descriptionPost.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.descriptionPost.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
             
-            self.postFooterStack.topAnchor.constraint(equalTo: self.postContentStack.bottomAnchor, constant: 16),
-            self.postFooterStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            self.postFooterStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
-            self.postFooterStack.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16)
+            self.likesPost.topAnchor.constraint(equalTo: self.descriptionPost.bottomAnchor, constant: 16),
+            self.likesPost.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.likesPost.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16),
+            
+            self.viewsPost.topAnchor.constraint(equalTo: self.descriptionPost.bottomAnchor, constant: 16),
+            self.viewsPost.leadingAnchor.constraint(equalTo: self.likesPost.trailingAnchor),
+            self.viewsPost.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            self.viewsPost.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -16)
+            
         ])
     }
 }

@@ -101,12 +101,15 @@ class ProfileHeaderView: UIView {
 
             self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
             self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+            self.userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            
 
             self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
-            self.userStatus.leadingAnchor.constraint(equalTo: self.userName.leadingAnchor),
+            self.userStatus.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+            self.userStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
 
             self.statusField.topAnchor.constraint(equalTo: self.userStatus.bottomAnchor),
-            self.statusField.leadingAnchor.constraint(equalTo: self.userStatus.leadingAnchor),
+            self.statusField.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
             self.statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.statusField.heightAnchor.constraint(equalToConstant: 40),
 
@@ -114,7 +117,7 @@ class ProfileHeaderView: UIView {
             self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.button.heightAnchor.constraint(equalToConstant: 50),
-            self.button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
+//            self.button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
             self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }

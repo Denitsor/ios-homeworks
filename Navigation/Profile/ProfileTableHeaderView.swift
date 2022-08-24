@@ -26,9 +26,8 @@ class ProfileTableHeaderView: UITableViewHeaderFooterView {
             NSLayoutConstraint.activate([
                 self.profileHeaderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 self.profileHeaderView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                self.profileHeaderView.topAnchor.constraint(equalTo: self.topAnchor)
-//                self.profileHeaderView.heightAnchor.constraint(equalToConstant: 220)
-
+                self.profileHeaderView.topAnchor.constraint(equalTo: self.topAnchor),
+                self.profileHeaderView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
         }
       
