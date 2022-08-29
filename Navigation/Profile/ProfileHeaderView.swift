@@ -14,7 +14,6 @@ class ProfileHeaderView: UIView {
         imageView.image = UIImage(named: "detectlogo")
         imageView.backgroundColor = .darkGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
@@ -24,7 +23,6 @@ class ProfileHeaderView: UIView {
         userName.textColor = .black
         userName.font = UIFont.boldSystemFont(ofSize: 18)
         userName.translatesAutoresizingMaskIntoConstraints = false
-        
         return userName
     }()
     
@@ -36,39 +34,20 @@ class ProfileHeaderView: UIView {
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
         userStatus.translatesAutoresizingMaskIntoConstraints = false
-        
         return userStatus
     }()
     
     private lazy var statusField: UITextField = {
-        let statusField = TextFieldWithPadding()
+        let statusField = UITextField()
         statusField.backgroundColor = .white
         statusField.textColor = .black
         statusField.font = UIFont.systemFont(ofSize: 15)
         statusField.addTarget(self, action: #selector(self.statusTextChanged), for: .editingChanged)
         statusField.translatesAutoresizingMaskIntoConstraints = false
-        
+        statusField.addPaddingLeft(20)
         return statusField
     }()
     
-    class TextFieldWithPadding: UITextField {
-        var textPadding = UIEdgeInsets(
-            top: 10,
-            left: 20,
-            bottom: 10,
-            right: 20
-        )
-
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.textRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
-
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            let rect = super.editingRect(forBounds: bounds)
-            return rect.inset(by: textPadding)
-        }
-    }
     
     private lazy var button: UIButton = {
         let button = UIButton()
@@ -76,7 +55,6 @@ class ProfileHeaderView: UIView {
         button.setTitle("Изменить статус", for: .normal)
         button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
@@ -123,12 +101,15 @@ class ProfileHeaderView: UIView {
 
             self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
             self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+            self.userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            
 
             self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
-            self.userStatus.leadingAnchor.constraint(equalTo: self.userName.leadingAnchor),
+            self.userStatus.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+            self.userStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
 
             self.statusField.topAnchor.constraint(equalTo: self.userStatus.bottomAnchor),
-            self.statusField.leadingAnchor.constraint(equalTo: self.userStatus.leadingAnchor),
+            self.statusField.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
             self.statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.statusField.heightAnchor.constraint(equalToConstant: 40),
 
@@ -136,7 +117,7 @@ class ProfileHeaderView: UIView {
             self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             self.button.heightAnchor.constraint(equalToConstant: 50),
-            self.button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
+//            self.button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -32),
             self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }

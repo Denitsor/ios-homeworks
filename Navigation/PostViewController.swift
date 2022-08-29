@@ -14,7 +14,7 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = post?.postTitle
+        self.navigationItem.title = "Feeds test"//post?.postTitle
         self.view.backgroundColor = .lightGray
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.up.and.person.rectangle.portrait"), style: .plain, target: self, action: #selector(rightHandAction))
