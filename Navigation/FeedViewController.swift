@@ -44,7 +44,12 @@ class FeedViewController: UIViewController {
         
         self.navigationItem.title = "Лента заголовок"
         
-        self.view.backgroundColor = .systemCyan
+        #if DEBUG
+            self.view.backgroundColor = .systemRed
+        #else
+            self.view.backgroundColor = .systemBackground
+        #endif
+        
         self.view.addSubview(btnStack)
         self.btnStack.addArrangedSubview(self.button)
         self.btnStack.addArrangedSubview(self.button2)
