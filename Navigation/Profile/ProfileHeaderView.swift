@@ -5,7 +5,8 @@
 //  Created by MacBook on 19.07.2022.
 //
 
-import UIKit
+//import UIKit
+import SnapKit
 
 class ProfileHeaderView: UIView {
     
@@ -112,6 +113,18 @@ class ProfileHeaderView: UIView {
         self.addSubview(self.avatarImage)
         self.addSubview(self.closeAnimationButton)
         self.setupGesture()
+        
+//        self.userName.snp.makeConstraints { (make) -> Void in
+//           make.width.height.equalTo(50)
+//           make.center.equalTo(self.view)
+//        }
+        
+        self.avatarImage.snp.makeConstraints{ (make) -> Void in
+            make.width.height.equalTo(96)
+            make.topMargin.equalTo(16)
+            make.leading.equalTo(16)
+        }
+        
         
         NSLayoutConstraint.activate([        
             self.avatarImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),

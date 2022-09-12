@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class PostTableViewCell: UITableViewCell {
     
@@ -21,7 +22,6 @@ class PostTableViewCell: UITableViewCell {
     
     private lazy var imagePost: UIImageView = {
        let imageView = UIImageView()
-//        imageView.image = UIImage(named: "\(posts.image)")
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
