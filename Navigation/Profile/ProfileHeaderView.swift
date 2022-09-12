@@ -13,7 +13,7 @@ class ProfileHeaderView: UIView {
     private lazy var bgAnimation: UIView = {
         let avaAnimation = UIView()
         avaAnimation.backgroundColor = .black.withAlphaComponent(0)
-        avaAnimation.translatesAutoresizingMaskIntoConstraints = false
+//        avaAnimation.translatesAutoresizingMaskIntoConstraints = false
         return avaAnimation
     }()
     
@@ -23,7 +23,7 @@ class ProfileHeaderView: UIView {
         button.alpha = 0
         button.setImage(UIImage(systemName:"x.circle.fill"), for: .normal)
         button.addTarget(self, action: #selector(self.handleTapCloseGestureRecognizer), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -32,7 +32,7 @@ class ProfileHeaderView: UIView {
         imageView.image = UIImage(named: "detectlogo")
         imageView.backgroundColor = .darkGray
         imageView.isUserInteractionEnabled = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -41,7 +41,7 @@ class ProfileHeaderView: UIView {
         userName.text = "Detect24"
         userName.textColor = .black
         userName.font = UIFont.boldSystemFont(ofSize: 18)
-        userName.translatesAutoresizingMaskIntoConstraints = false
+//        userName.translatesAutoresizingMaskIntoConstraints = false
         return userName
     }()
     
@@ -52,7 +52,7 @@ class ProfileHeaderView: UIView {
         userStatus.text = self.statusText ?? "Делаю ДЗ"
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
-        userStatus.translatesAutoresizingMaskIntoConstraints = false
+//        userStatus.translatesAutoresizingMaskIntoConstraints = false
         return userStatus
     }()
     
@@ -62,7 +62,7 @@ class ProfileHeaderView: UIView {
         statusField.textColor = .black
         statusField.font = UIFont.systemFont(ofSize: 15)
         statusField.addTarget(self, action: #selector(self.statusTextChanged), for: .editingChanged)
-        statusField.translatesAutoresizingMaskIntoConstraints = false
+//        statusField.translatesAutoresizingMaskIntoConstraints = false
         statusField.addPaddingLeft(20)
         return statusField
     }()
@@ -72,7 +72,7 @@ class ProfileHeaderView: UIView {
         button.backgroundColor = .systemBlue
         button.setTitle("Изменить статус", for: .normal)
         button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -114,52 +114,79 @@ class ProfileHeaderView: UIView {
         self.addSubview(self.closeAnimationButton)
         self.setupGesture()
         
-//        self.userName.snp.makeConstraints { (make) -> Void in
-//           make.width.height.equalTo(50)
-//           make.center.equalTo(self.view)
-//        }
-        
-        self.avatarImage.snp.makeConstraints{ (make) -> Void in
+        self.avatarImage.snp.makeConstraints { (make) -> Void in
             make.width.height.equalTo(96)
-            make.topMargin.equalTo(16)
-            make.leading.equalTo(16)
+            make.top.equalTo(self.snp.top).offset(16)
+            make.leading.equalTo(self.snp.leading).offset(16)
         }
         
+        self.closeAnimationButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp.top).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+        }
         
-        NSLayoutConstraint.activate([        
-            self.avatarImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            self.avatarImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.avatarImage.widthAnchor.constraint(equalToConstant: 96),
-            self.avatarImage.heightAnchor.constraint(equalToConstant: 96),
-            
-            self.closeAnimationButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            self.closeAnimationButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            
-            self.bgAnimation.topAnchor.constraint(equalTo: self.topAnchor),
-            self.bgAnimation.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.bgAnimation.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.bgAnimation.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-
-            self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
-            self.userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            
-
-            self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
-            self.userStatus.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
-            self.userStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-
-            self.statusField.topAnchor.constraint(equalTo: self.userStatus.bottomAnchor),
-            self.statusField.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
-            self.statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.statusField.heightAnchor.constraint(equalToConstant: 40),
-
-            self.button.topAnchor.constraint(equalTo: self.statusField.bottomAnchor, constant: 10),
-            self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            self.button.heightAnchor.constraint(equalToConstant: 50),
-            self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
-        ])
+        self.bgAnimation.snp.makeConstraints { (make) -> Void in
+            make.top.bottom.leading.trailing.equalTo(self)
+        }
+        
+        self.userName.snp.makeConstraints{ (make) -> Void in
+            make.top.equalTo(self.snp.top).offset(27)
+            make.leading.equalTo(self.avatarImage.snp.trailing).offset(16)
+        }
+        
+        self.userStatus.snp.makeConstraints{ (make) -> Void in
+            make.top.equalTo(self.userName.snp.bottom).offset(16)
+            make.leading.equalTo(self.avatarImage.snp.trailing).offset(16)
+        }
+        
+        self.statusField.snp.makeConstraints{ (make) -> Void in
+            make.top.equalTo(self.userStatus.snp.bottom)
+            make.leading.equalTo(self.avatarImage.snp.trailing).offset(16)
+            make.trailing.equalTo(self.snp.trailing).offset(-16)
+            make.height.equalTo(40)
+        }
+        
+        self.button.snp.makeConstraints{ (make) -> Void in
+            make.top.equalTo(self.statusField.snp.bottom).offset(10)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(-16)
+            make.height.equalTo(50)
+        }
+        
+//        NSLayoutConstraint.activate([
+//            self.avatarImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+//            self.avatarImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+//            self.avatarImage.widthAnchor.constraint(equalToConstant: 96),
+//            self.avatarImage.heightAnchor.constraint(equalToConstant: 96),
+//
+//            self.closeAnimationButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+//            self.closeAnimationButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//
+//            self.bgAnimation.topAnchor.constraint(equalTo: self.topAnchor),
+//            self.bgAnimation.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            self.bgAnimation.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            self.bgAnimation.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+//
+//            self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
+//            self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+//            self.userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//
+//            self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
+//            self.userStatus.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+//            self.userStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//
+//            self.statusField.topAnchor.constraint(equalTo: self.userStatus.bottomAnchor),
+//            self.statusField.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
+//            self.statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//            self.statusField.heightAnchor.constraint(equalToConstant: 40),
+//
+//            self.button.topAnchor.constraint(equalTo: self.statusField.bottomAnchor, constant: 10),
+//            self.button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+//            self.button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+//            self.button.heightAnchor.constraint(equalToConstant: 50),
+//            self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+//        ])
     }
     
     let screenSize: CGRect = UIScreen.main.bounds
