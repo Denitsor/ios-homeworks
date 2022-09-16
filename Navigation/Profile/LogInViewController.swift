@@ -9,6 +9,13 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+#if DEBUG
+    var userService = TestUserService()
+#else
+    var userService: UserService?
+#endif
+        
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +80,6 @@ class LogInViewController: UIViewController {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-//        button.alpha = 1
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Log In", for: .normal)
         button.addTarget(self, action: #selector(self.didTabButton), for: .touchUpInside)
@@ -134,10 +140,21 @@ class LogInViewController: UIViewController {
         ])
     }
     
-    
     @objc private func didTabButton() {
-        let profileView = ProfileViewController()
-        self.navigationController?.pushViewController(profileView, animated: true)
+        if let login = self.login {
+            if let user = userService.signUser(login: login) {
+                let profileVC = ProfileViewController(currentUser: user)
+                navigationController?.pushViewController(profileVC, animated: true)
+            } else {
+                showAlert(message: "Неправильно указан логин")
+            }
+        }
+        func showAlert(message: String) {
+            let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+//        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     @objc private func didShowKeyboard(_ notification: Notification) {
@@ -176,7 +193,7 @@ extension LogInViewController: UITextFieldDelegate {
     }
     // отслеживает что было написано в текстфилд
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        print("ввели \(textField.text)") //пример
+//        print("ввели \(textField.text)") //пример
     }
     //нажатие на кнопку return на клавиатуре -- можно обработать скрытие клавиатуры
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

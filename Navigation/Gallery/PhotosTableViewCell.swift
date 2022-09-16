@@ -29,19 +29,6 @@ class PhotosTableViewCell: UITableViewCell {
         return image
     }()
     
-    // --- 1 возможно это не верно пробовал вывести таким способом 4 картиники
-//    private var miniGallery: UICollectionView = {
-//        let miniGallery = PhotosViewController()
-//        let photoGallery = miniGallery.photoGallery
-//        photoGallery.backgroundColor = .black
-//        photoGallery.layer.cornerRadius = 6
-//        photoGallery.clipsToBounds = true
-//        miniGallery.layout.scrollDirection = .horizontal
-//        miniGallery.collectionView(photoGallery, numberOfItemsInSection: 4)
-//        return photoGallery
-//    }()
-    // --- 2
-    
     private enum Constants {
         static let numberOfItemInLine: CGFloat = 4
     }
@@ -80,22 +67,13 @@ class PhotosTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func prepareForReuse() {
-        self.prepareForReuse()
-        self.photoCellTitle.text = nil
-//        self.imagePost.image = nil
-    }
     
     private func setupView() {
         self.contentView.backgroundColor = .systemBackground
         
         self.contentView.addSubview(photoCellTitle)
         self.contentView.addSubview(photoCellArrow)
-//        //--1 collview
-//        self.contentView.addSubview(miniGallery)
-//        //--2
         self.contentView.addSubview(self.photoGallery)
-        // --- 3
         
         NSLayoutConstraint.activate([
             

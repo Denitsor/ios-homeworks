@@ -76,15 +76,6 @@ class PostTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        self.prepareForReuse()
-        self.authorPost.text = nil
-        self.imagePost.image = nil
-        self.descriptionPost.text = nil
-        self.likesPost.text = nil
-        self.viewsPost.text = nil
-    }
-    
     private func setupView() {
         self.contentView.backgroundColor = .white
         

@@ -37,10 +37,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        self.prepareForReuse()
-        self.photoGal.image = nil
-    }
 }
 
 extension PhotosCollectionViewCell: Settings {

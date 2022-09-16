@@ -10,6 +10,18 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+    var currentUser: User
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
@@ -26,16 +38,24 @@ class ProfileViewController: UIViewController {
         
     private lazy var posts: [Post] = []
     
+    private lazy var profileHeaderView = ProfileHeaderView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
+        self.injectDataProfileTableView()
         self.setupViewProfile()
         self.posts = PostsArray.shared.data
         self.tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
+        
     }
-
+    private func injectDataProfileTableView() {
+        profileHeaderView.addDataUserProfile(userStatus: currentUser.userStatus,
+                                             userName: currentUser.userName,
+                                             avatarImage: currentUser.userAvatar)
+    }
     private func setupViewProfile() {
         
         NSLayoutConstraint.activate([
