@@ -48,7 +48,7 @@ class ProfileHeaderView: UIView {
 
     private lazy var userStatus: UILabel = {
         let userStatus = UILabel()
-        userStatus.text = self.statusText ?? "Demo"
+        userStatus.text = self.statusText ?? "Demo status"
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
         userStatus.translatesAutoresizingMaskIntoConstraints = false
@@ -102,11 +102,11 @@ class ProfileHeaderView: UIView {
         self.button.layer.shadowOpacity = 0.7
         
     }
-    
-    func addDataUserProfile(userStatus: String, userName: String, avatarImage: UIImage) {
-        self.userStatus.text = self.statusText ?? userStatus
-        self.userName.text = userName
-        self.avatarImage.image = avatarImage //UIImage(named: avatarImage)
+
+    func setUserDetails(userData: User) {
+        self.userStatus.text = userData.userStatus //self.statusText ?? userData.userStatus
+        self.userName.text = userData.userName
+        self.avatarImage.image = userData.userAvatar //UIImage(named: avatarImage)
     }
     
     private func setupView() {
