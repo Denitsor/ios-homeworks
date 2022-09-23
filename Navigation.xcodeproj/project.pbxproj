@@ -16,9 +16,13 @@
 		FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE06287ED70C00D07799 /* ViewController.swift */; };
 		FA38CE0C287ED70E00D07799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0B287ED70E00D07799 /* Assets.xcassets */; };
 		FA38CE0F287ED70E00D07799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */; };
+		FA467C4428D2102C0040331E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA467C4328D2102C0040331E /* User.swift */; };
+		FA467C4728D216EF0040331E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA467C4628D216EF0040331E /* UserService.swift */; };
+		FA467C4928D217590040331E /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA467C4828D217590040331E /* CurrentUserService.swift */; };
 		FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CA307288701C100A65993 /* ProfileHeaderView.swift */; };
 		FA9924B628CF7CBA0035C401 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = FA9924B528CF7CBA0035C401 /* iOSIntPackage */; };
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
+		FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC248228D36B4100FD1331 /* TestUserService.swift */; };
 		FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAA28AE90640013399D /* PostsArray.swift */; };
 		FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */; };
 		FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */; };
@@ -73,9 +77,13 @@
 		FA38CE0B287ED70E00D07799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA38CE0E287ED70E00D07799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA38CE10287ED70E00D07799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA467C4328D2102C0040331E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA467C4628D216EF0040331E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FA467C4828D217590040331E /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		FA6CA307288701C100A65993 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		FA9B7C9F288067D70020EF5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		FAAC248228D36B4100FD1331 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		FAB04BAA28AE90640013399D /* PostsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsArray.swift; sourceTree = "<group>"; };
 		FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,11 +171,23 @@
 				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
 				FAB04BD828BE265E0013399D /* Gallery */,
 				FA6CA309288701EA00A65993 /* Profile */,
+				FA467C4528D216BA0040331E /* User */,
 				FA38CE0B287ED70E00D07799 /* Assets.xcassets */,
 				FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */,
 				FA38CE10287ED70E00D07799 /* Info.plist */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FA467C4528D216BA0040331E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FA467C4328D2102C0040331E /* User.swift */,
+				FA467C4828D217590040331E /* CurrentUserService.swift */,
+				FAAC248228D36B4100FD1331 /* TestUserService.swift */,
+				FA467C4628D216EF0040331E /* UserService.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		FA6CA309288701EA00A65993 /* Profile */ = {
@@ -386,13 +406,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */,
+				FA467C4428D2102C0040331E /* User.swift in Sources */,
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */,
 				FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
+				FA467C4728D216EF0040331E /* UserService.swift in Sources */,
 				FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */,
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
 				FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */,
+				FA467C4928D217590040331E /* CurrentUserService.swift in Sources */,
+				FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */,
 				FAB04BD528BD26CD0013399D /* PhotosTableViewCell.swift in Sources */,
 				FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */,
 				FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */,

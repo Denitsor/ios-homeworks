@@ -10,6 +10,18 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+    var currentUser: User
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+//        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
@@ -18,13 +30,15 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostCell")
-        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileTableHeaderView")
+        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileTableHeaderViewId")
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotoTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
         
     private lazy var posts: [Post] = []
+    
+    private lazy var profileHeaderView = ProfileHeaderView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,12 +76,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return 1
     }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderView")
+        guard section == 0 else { return nil }
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderViewId") as? ProfileTableHeaderView {
+            headerView.profileHeaderView.setUserDetails(userData: currentUser)
+            return headerView
+        } else {
+            preconditionFailure("user not exist")
         }
-        return nil
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        print(indexPath)
         if indexPath.section == 0 {
@@ -92,4 +111,5 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let PhotosVC = PhotosViewController()
             navigationController?.pushViewController(PhotosVC, animated: true)
     }
+    
 }

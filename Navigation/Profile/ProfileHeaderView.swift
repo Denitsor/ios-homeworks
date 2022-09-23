@@ -29,7 +29,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var avatarImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "detectlogo")
+//        imageView.image = user.userAvatar
         imageView.backgroundColor = .darkGray
         imageView.isUserInteractionEnabled = true
 //        imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var userName: UILabel = {
         let userName = UILabel()
-        userName.text = "Detect24"
+        userName.text = "Demo"
         userName.textColor = .black
         userName.font = UIFont.boldSystemFont(ofSize: 18)
 //        userName.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ class ProfileHeaderView: UIView {
 
     private lazy var userStatus: UILabel = {
         let userStatus = UILabel()
-        userStatus.text = self.statusText ?? "Делаю ДЗ"
+        userStatus.text = self.statusText ?? "Demo status"
         userStatus.textColor = .darkGray
         userStatus.font = UIFont.systemFont(ofSize: 14)
 //        userStatus.translatesAutoresizingMaskIntoConstraints = false
@@ -102,6 +102,12 @@ class ProfileHeaderView: UIView {
         self.button.layer.shadowColor = UIColor.black.cgColor
         self.button.layer.shadowOpacity = 0.7
         
+    }
+
+    func setUserDetails(userData: User) {
+        self.userStatus.text = userData.userStatus //self.statusText ?? userData.userStatus
+        self.userName.text = userData.userName
+        self.avatarImage.image = userData.userAvatar //UIImage(named: avatarImage)
     }
     
     private func setupView() {
@@ -196,7 +202,7 @@ class ProfileHeaderView: UIView {
     }()
     
     private func setupAnimationOn() {
-        let start = startPoint
+        _ = startPoint
         let ratioBgImageX = self.screenSize.width / self.bgAnimation.frame.width
         let ratioBgImageY = self.screenSize.height / self.bgAnimation.frame.height
         let ratioAvatarImage = self.screenSize.width / self.avatarImage.frame.width

@@ -16,9 +16,6 @@ class PhotosViewController: UIViewController {
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        // отступы между рядами и ячейками
-//        layout.minimumInteritemSpacing = 8
-//        layout.minimumLineSpacing = 8
         layout.scrollDirection = .vertical
         return layout
     }()
