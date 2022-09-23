@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     
     init(currentUser: User) {
         self.currentUser = currentUser
-        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
+//        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostCell")
-        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileTableHeaderView")
+        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileTableHeaderViewId")
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotoTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -44,18 +44,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
-        self.injectDataProfileTableView()
         self.setupViewProfile()
         self.posts = PostsArray.shared.data
         self.tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
-        
     }
-    private func injectDataProfileTableView() {
-        profileHeaderView.addDataUserProfile(userStatus: currentUser.userStatus,
-                                             userName: currentUser.userName,
-                                             avatarImage: currentUser.userAvatar)
-    }
+
     private func setupViewProfile() {
         
         NSLayoutConstraint.activate([
@@ -82,12 +76,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return 1
     }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderView")
+        guard section == 0 else { return nil }
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderViewId") as? ProfileTableHeaderView {
+            headerView.profileHeaderView.setUserDetails(userData: currentUser)
+            return headerView
+        } else {
+            preconditionFailure("user not exist")
         }
-        return nil
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        print(indexPath)
         if indexPath.section == 0 {
@@ -112,4 +111,5 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let PhotosVC = PhotosViewController()
             navigationController?.pushViewController(PhotosVC, animated: true)
     }
+    
 }

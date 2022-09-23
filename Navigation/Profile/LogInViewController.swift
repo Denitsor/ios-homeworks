@@ -9,12 +9,11 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-#if DEBUG
-    var userService = TestUserService()
-#else
-    var userService: UserService?
-#endif
-        
+    #if DEBUG
+        var userService = TestUserService()
+    #else
+        var userService: UserService?
+    #endif    
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -147,6 +146,7 @@ class LogInViewController: UIViewController {
                 navigationController?.pushViewController(profileVC, animated: true)
             } else {
                 showAlert(message: "Неправильно указан логин")
+                print(login)
             }
         }
         func showAlert(message: String) {
@@ -183,21 +183,20 @@ class LogInViewController: UIViewController {
 }
 
 extension LogInViewController: UITextFieldDelegate {
-
-    //метод когда закончили взаимодействовать с филдом
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        // разделяем запись в переменную в соответсвие с выбранным поле по tag
         if textField.tag == 0 {
-            self.login = textField.text // сохраняем в переменную запись из текстфилда
+            self.login = textField.text
         }
     }
-    // отслеживает что было написано в текстфилд
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-//        print("ввели \(textField.text)") //пример
-    }
+//     отслеживает что было написано в текстфилд
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            print("ввели \(textField.text)") //пример
+        }
     //нажатие на кнопку return на клавиатуре -- можно обработать скрытие клавиатуры
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.forcedHidingKeyboard()
         return true
     }
 }
+
