@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileTableHeaderView: UITableViewHeaderFooterView {
     
-    private lazy var profileHeaderView: ProfileHeaderView = {
+    lazy var profileHeaderView: ProfileHeaderView = {
         let profileHeaderView = ProfileHeaderView()
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         return profileHeaderView

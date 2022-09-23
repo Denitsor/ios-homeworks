@@ -76,21 +76,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return 1
     }
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if section == 0 {
-//            return tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderViewId")
-//        }
-//        return nil
-//    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderViewId") as? ProfileTableHeaderView {
-            profileHeaderView.setUserDetails(userData: currentUser)
+            headerView.profileHeaderView.setUserDetails(userData: currentUser)
             return headerView
         } else {
             preconditionFailure("user not exist")
         }
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        print(indexPath)
         if indexPath.section == 0 {
