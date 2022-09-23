@@ -9,11 +9,11 @@ import UIKit
 
 class ProfileTableHeaderView: UITableViewHeaderFooterView {
 
-        private lazy var profileHeaderView: ProfileHeaderView = {
-            let profileHeaderView = ProfileHeaderView()
-            profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
-            return profileHeaderView
-        }()
+    lazy var profileHeaderView: ProfileHeaderView = {
+        let profileHeaderView = ProfileHeaderView()
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        return profileHeaderView
+    }()
     
     override init (reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
