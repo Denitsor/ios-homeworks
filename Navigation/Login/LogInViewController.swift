@@ -9,6 +9,11 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    private var login: String?
+    private var password: String?
+    
+    var loginDelegate: LoginViewControllerDelegate?
+    
     #if DEBUG
         var userService = TestUserService()
     #else
@@ -99,7 +104,6 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didShowKeyboard (_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didHideKeyboard (_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    private var login: String?
 
     private func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.forcedHidingKeyboard))
@@ -140,14 +144,19 @@ class LogInViewController: UIViewController {
     }
     
     @objc private func didTabButton() {
-        if let login = self.login {
-            if let user = userService.signUser(login: login) {
-                let profileVC = ProfileViewController(currentUser: user)
-                navigationController?.pushViewController(profileVC, animated: true)
+        if let login = self.login, let password = self.password {
+            if loginDelegate?.check(loginDelegate: login, passwordDelegate: password) == true {
+                if let user = userService.signUser(login: login) {
+                    let profileVC = ProfileViewController(currentUser: user)
+                    navigationController?.pushViewController(profileVC, animated: true)
+                } else {
+                    showAlert(message: "Неправильно указан логин")
+    //                print(login)
+                }
             } else {
-                showAlert(message: "Неправильно указан логин")
-                print(login)
+                showAlert(message: "Неверно введен логин или пароль")
             }
+            
         }
         func showAlert(message: String) {
             let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: UIAlertController.Style.alert)
@@ -185,13 +194,21 @@ class LogInViewController: UIViewController {
 extension LogInViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag == 0 {
-            self.login = textField.text
-        }
+//        if textField.tag == 0 {
+//            self.login = textField.text
+//        }
+//        if textField.tag == 1 {
+//            self.password = textField.text
+//        }
     }
 //     отслеживает что было написано в текстфилд
         func textFieldDidChangeSelection(_ textField: UITextField) {
-            print("ввели \(textField.text)") //пример
+            if textField.tag == 0 {
+                self.login = textField.text
+            }
+            if textField.tag == 1 {
+                self.password = textField.text
+            }
         }
     //нажатие на кнопку return на клавиатуре -- можно обработать скрытие клавиатуры
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
