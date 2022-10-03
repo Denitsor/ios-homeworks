@@ -19,7 +19,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         let image: UIImage?
     }
 
-    private lazy var photoGal: UIImageView = {
+    lazy var photoGal: UIImageView = {
         let image = UIImageView()
         image.layer.frame = CGRect(x: .zero, y: .zero, width: 18, height: 12)
         image.tintColor = .black
@@ -44,6 +44,15 @@ extension PhotosCollectionViewCell: Settings {
         guard let viewModel = viewModel as? ViewModel else { return }
         self.photoGal.image = viewModel.image
         
+        NSLayoutConstraint.activate([
+            self.photoGal.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.photoGal.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.photoGal.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.photoGal.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+        ])
+    }
+    
+    func setup2() {
         NSLayoutConstraint.activate([
             self.photoGal.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.photoGal.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),

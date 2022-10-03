@@ -6,13 +6,25 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
+    
+    let imagePublisherFacade = ImagePublisherFacade()
+    var dataGallery: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]
+    var dataGallery2: [UIImage] = []
+    
+    func addImagesGallery2() {
+        for item in dataGallery {
+            dataGallery2.append(UIImage(named: "\(item)")!)
+//            print(item)
+        }
+    }
     
     private enum Constants {
         static let numberOfItemInLine: CGFloat = 3
     }
-
+    
     private lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
@@ -31,8 +43,6 @@ class PhotosViewController: UIViewController {
         return collView
     }()
     
-    var dataGallery = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -40,11 +50,15 @@ class PhotosViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(self.photoGallery)
         setupView()
+        addImagesGallery2()
+        imagePublisherFacade.subscribe(self)
+        imagePublisherFacade.addImagesWithTimer(time: 0.6, repeat: dataGallery2.count, userImages: dataGallery2)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.isHidden = true
+        imagePublisherFacade.removeSubscription(for: self)
     }
     
     private func setupView() {
@@ -52,7 +66,7 @@ class PhotosViewController: UIViewController {
             self.photoGallery.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.photoGallery.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.photoGallery.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.photoGallery.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            self.photoGallery.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
 
@@ -60,7 +74,7 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataGallery.count
+        dataGallery2.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,10 +83,12 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCell", for: indexPath)
             return cell
         }
-        let data = self.dataGallery[indexPath.item]
+//        let data = self.dataGallery[indexPath.item]
         cell.backgroundColor = .systemMint
-        let viewModel = PhotosCollectionViewCell.ViewModel(image: UIImage(named: "\(data)"))
-        cell.setup(width: viewModel)
+//        let viewModel = PhotosCollectionViewCell.ViewModel(image: UIImage(named: "\(data)"))
+//        cell.setup(width: viewModel)
+        cell.photoGal.image = self.dataGallery2[indexPath.row]
+        cell.setup2()
         return cell
     }
     
@@ -85,5 +101,11 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         
         let itemWidth = floor(neededWidth / Constants.numberOfItemInLine) // округляем
         return CGSize(width: itemWidth, height: itemWidth)
+    }
+}
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        dataGallery2 = images
+        photoGallery.reloadData()
     }
 }
