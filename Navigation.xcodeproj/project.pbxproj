@@ -27,6 +27,8 @@
 		FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BD628BE17CB0013399D /* PhotosViewController.swift */; };
 		FAB04BDA28BE26BC0013399D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BD928BE26BC0013399D /* PhotosCollectionViewCell.swift */; };
 		FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */; };
+		FAB9EACD28F5AA73009D2BA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */; };
+		FAB9EACF28F5CD42009D2BA0 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */; };
 		FAC4DA9728C9F51A0089117A /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC4DA9628C9F51A0089117A /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC4DA9A28C9F51A0089117A /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; };
 		FAC4DA9B28C9F51A0089117A /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -88,6 +90,8 @@
 		FAB04BD628BE17CB0013399D /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		FAB04BD928BE26BC0013399D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		FAC4DA9428C9F51A0089117A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC4DA9628C9F51A0089117A /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		FAE2DE0B28E2DF10004CCC3D /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
@@ -141,12 +145,11 @@
 			children = (
 				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
 				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
-				FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */,
-				FAF51F9928804221003A1397 /* PostViewController.swift */,
 				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
 				FA38CE06287ED70C00D07799 /* ViewController.swift */,
-				FAB04BAA28AE90640013399D /* PostsArray.swift */,
-				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
+				FAAD974828F6AAFB00F23929 /* Feed */,
+				FAB9EAD328F5E5CB009D2BA0 /* Customization */,
+				FAB9EAD228F5E59E009D2BA0 /* Posts */,
 				FAB04BD828BE265E0013399D /* Gallery */,
 				FA6CA309288701EA00A65993 /* Profile */,
 				FAE2DE0D28E2E1DD004CCC3D /* Login */,
@@ -179,6 +182,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		FAAD974828F6AAFB00F23929 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */,
+				FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		FAB04BD828BE265E0013399D /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +199,24 @@
 				FAB04BD928BE26BC0013399D /* PhotosCollectionViewCell.swift */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		FAB9EAD228F5E59E009D2BA0 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				FAF51F9928804221003A1397 /* PostViewController.swift */,
+				FAB04BAA28AE90640013399D /* PostsArray.swift */,
+				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		FAB9EAD328F5E5CB009D2BA0 /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */,
+			);
+			path = Customization;
 			sourceTree = "<group>";
 		};
 		FAC4DA9528C9F51A0089117A /* StorageService */ = {
@@ -201,12 +231,12 @@
 		FAE2DE0D28E2E1DD004CCC3D /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				FAE2DE0B28E2DF10004CCC3D /* Checker.swift */,
 				FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */,
 				FAE2DE1028E70585004CCC3D /* LoginInspector.swift */,
-				FAE2DE1428EAE82A004CCC3D /* MyLoginFactory.swift */,
-				FAE2DE0B28E2DF10004CCC3D /* Checker.swift */,
 				FAE2DE0E28E2E219004CCC3D /* LoginViewControllerDelegate.swift */,
 				FAE2DE1228EAE791004CCC3D /* LoginFactory.swift */,
+				FAE2DE1428EAE82A004CCC3D /* MyLoginFactory.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -333,6 +363,7 @@
 				FAE2DE0C28E2DF10004CCC3D /* Checker.swift in Sources */,
 				FA467C4428D2102C0040331E /* User.swift in Sources */,
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
+				FAB9EACD28F5AA73009D2BA0 /* CustomButton.swift in Sources */,
 				FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */,
 				FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
@@ -349,6 +380,7 @@
 				FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */,
 				FAE2DE1128E70585004CCC3D /* LoginInspector.swift in Sources */,
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,
+				FAB9EACF28F5CD42009D2BA0 /* FeedModel.swift in Sources */,
 				FAB04BDA28BE26BC0013399D /* PhotosCollectionViewCell.swift in Sources */,
 				FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */,
 				FAE2DE1528EAE82A004CCC3D /* MyLoginFactory.swift in Sources */,

@@ -66,18 +66,15 @@ class ProfileHeaderView: UIView {
         return statusField
     }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemBlue
-        button.setTitle("Изменить статус", for: .normal)
-        button.addTarget(self, action: #selector(self.buttonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var button: CustomButton = {
+        let button = CustomButton(title: "Изменить статус", titleColor: .lightGray)
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()
+        self.buttonTap()
     }
 
     required init?(coder: NSCoder) {
@@ -95,12 +92,6 @@ class ProfileHeaderView: UIView {
         self.statusField.layer.borderWidth = 1
         self.statusField.layer.borderColor = UIColor.black.cgColor
         
-        self.button.layer.cornerRadius = 4
-        self.button.layer.shadowOffset = .init(width: 4, height: 4)
-        self.button.layer.shadowRadius = 4
-        self.button.layer.shadowColor = UIColor.black.cgColor
-        self.button.layer.shadowOpacity = 0.7
-        
     }
 
     func setUserDetails(userData: User) {
@@ -110,11 +101,11 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupView() {
+        self.addSubview(self.bgAnimation)
         self.addSubview(self.userName)
         self.addSubview(self.userStatus)
         self.addSubview(self.statusField)
         self.addSubview(self.button)
-        self.addSubview(self.bgAnimation)
         self.addSubview(self.avatarImage)
         self.addSubview(self.closeAnimationButton)
         self.setupGesture()
@@ -136,7 +127,6 @@ class ProfileHeaderView: UIView {
             self.userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
             self.userName.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
             self.userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            
 
             self.userStatus.topAnchor.constraint(equalTo: self.userName.topAnchor, constant: 30),
             self.userStatus.leadingAnchor.constraint(equalTo: self.avatarImage.trailingAnchor, constant: 16),
@@ -153,6 +143,12 @@ class ProfileHeaderView: UIView {
             self.button.heightAnchor.constraint(equalToConstant: 50),
             self.button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
+    }
+    
+    private func buttonTap() {
+        button.activeTap = { [self] in
+            userStatus.text = statusField.text
+        }
     }
     
     let screenSize: CGRect = UIScreen.main.bounds
@@ -215,9 +211,6 @@ class ProfileHeaderView: UIView {
     }
     @objc private func handleTapCloseGestureRecognizer(_ gesture: UITapGestureRecognizer) {
         self.setupAnimationOff(startpoint: startPoint)
-    }
-    @objc private func buttonPressed() {
-        userStatus.text = statusField.text
     }
     @objc func statusTextChanged(_ textField: UITextField) {
         self.statusText = statusField.text

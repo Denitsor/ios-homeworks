@@ -15,9 +15,6 @@ class CurrentUserService: UserService {
         self.user = user
     }
     
-//    var user = User( userLogin: "axza", userName: "Мара", userAvatar: "logo", userStatus: "make techno!")
-    
-    
     func signUser(login: String) -> User? {
         user.userLogin == login ? user : nil
     }
