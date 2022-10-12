@@ -18,6 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: wc)
         let lenta = FeedViewController()
         let profile = LogInViewController()
+        profile.loginDelegate = LoginInspector()
+        
+        // фабричный метод -- задание 2
+//        profile.loginDelegate = MyLoginFactory().makeLoginInspector()
         
         let lentaNavigationController = UINavigationController(rootViewController: lenta)
         let profileNavigationController = UINavigationController(rootViewController: profile)

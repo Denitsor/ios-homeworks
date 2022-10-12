@@ -34,6 +34,11 @@
 		FAC4DA9A28C9F51A0089117A /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; };
 		FAC4DA9B28C9F51A0089117A /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAC4DA9F28C9F5420089117A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
+		FAE2DE0C28E2DF10004CCC3D /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE0B28E2DF10004CCC3D /* Checker.swift */; };
+		FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE0E28E2E219004CCC3D /* LoginViewControllerDelegate.swift */; };
+		FAE2DE1128E70585004CCC3D /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE1028E70585004CCC3D /* LoginInspector.swift */; };
+		FAE2DE1328EAE791004CCC3D /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE1228EAE791004CCC3D /* LoginFactory.swift */; };
+		FAE2DE1528EAE82A004CCC3D /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE1428EAE82A004CCC3D /* MyLoginFactory.swift */; };
 		FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF51F9928804221003A1397 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +98,11 @@
 		FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FAC4DA9428C9F51A0089117A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC4DA9628C9F51A0089117A /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		FAE2DE0B28E2DF10004CCC3D /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		FAE2DE0E28E2E219004CCC3D /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
+		FAE2DE1028E70585004CCC3D /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		FAE2DE1228EAE791004CCC3D /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		FAE2DE1428EAE82A004CCC3D /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		FAF51F9928804221003A1397 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +181,7 @@
 				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
 				FAB04BD828BE265E0013399D /* Gallery */,
 				FA6CA309288701EA00A65993 /* Profile */,
+				FAE2DE0D28E2E1DD004CCC3D /* Login */,
 				FA467C4528D216BA0040331E /* User */,
 				FA38CE0B287ED70E00D07799 /* Assets.xcassets */,
 				FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */,
@@ -196,7 +207,6 @@
 				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
 				FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */,
 				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
-				FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -218,6 +228,19 @@
 				FAC4DA9628C9F51A0089117A /* StorageService.h */,
 			);
 			path = StorageService;
+			sourceTree = "<group>";
+		};
+		FAE2DE0D28E2E1DD004CCC3D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */,
+				FAE2DE1028E70585004CCC3D /* LoginInspector.swift */,
+				FAE2DE1428EAE82A004CCC3D /* MyLoginFactory.swift */,
+				FAE2DE0B28E2DF10004CCC3D /* Checker.swift */,
+				FAE2DE0E28E2E219004CCC3D /* LoginViewControllerDelegate.swift */,
+				FAE2DE1228EAE791004CCC3D /* LoginFactory.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF51F9A28804221003A1397 /* PostViewController.swift in Sources */,
+				FAE2DE0C28E2DF10004CCC3D /* Checker.swift in Sources */,
 				FA467C4428D2102C0040331E /* User.swift in Sources */,
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */,
@@ -416,13 +440,17 @@
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
 				FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */,
 				FA467C4928D217590040331E /* CurrentUserService.swift in Sources */,
+				FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */,
 				FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */,
 				FAB04BD528BD26CD0013399D /* PhotosTableViewCell.swift in Sources */,
 				FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */,
+				FAE2DE1328EAE791004CCC3D /* LoginFactory.swift in Sources */,
 				FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */,
+				FAE2DE1128E70585004CCC3D /* LoginInspector.swift in Sources */,
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,
 				FAB04BDA28BE26BC0013399D /* PhotosCollectionViewCell.swift in Sources */,
 				FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */,
+				FAE2DE1528EAE82A004CCC3D /* MyLoginFactory.swift in Sources */,
 				FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
