@@ -9,13 +9,23 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
+    let coordinator: FeedCoordinator
+    init(coordinator: FeedCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var btnStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 10
         stack.distribution = .fillEqually
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.backgroundColor = .red
+        stack.backgroundColor = .clear
         
         return stack
     }()
@@ -89,7 +99,7 @@ class FeedViewController: UIViewController {
         self.navigationItem.title = "Лента заголовок"
         
         #if DEBUG
-            self.view.backgroundColor = .systemRed
+            self.view.backgroundColor = .lightGray
         #else
             self.view.backgroundColor = .systemBackground
         #endif
@@ -111,3 +121,4 @@ class FeedViewController: UIViewController {
         ])
     }
 }
+

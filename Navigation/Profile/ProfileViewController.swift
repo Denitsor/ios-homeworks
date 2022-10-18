@@ -10,6 +10,7 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+//    let coordinator: ProfileCoordinator
     var currentUser: User
     
     init(currentUser: User) {

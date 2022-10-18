@@ -12,6 +12,17 @@ class LogInViewController: UIViewController {
     private var login: String?
     private var password: String?
     
+    let coordinator: ProfileCoordinator
+
+    init(coordinator: ProfileCoordinator) {
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var loginDelegate: LoginViewControllerDelegate?
     
     #if DEBUG
@@ -147,8 +158,9 @@ class LogInViewController: UIViewController {
         if let login = self.login, let password = self.password {
             if loginDelegate?.check(loginDelegate: login, passwordDelegate: password) == true {
                 if let user = userService.signUser(login: login) {
-                    let profileVC = ProfileViewController(currentUser: user)
-                    navigationController?.pushViewController(profileVC, animated: true)
+//                    let profileVC = ProfileViewController(currentUser: user)
+//                    navigationController?.pushViewController(profileVC, animated: true)
+                    self.coordinator.startView()
                 } else {
                     showAlert(message: "Неправильно указан логин")
     //                print(login)

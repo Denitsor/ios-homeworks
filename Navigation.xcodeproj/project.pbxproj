@@ -20,6 +20,11 @@
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
 		FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC248228D36B4100FD1331 /* TestUserService.swift */; };
 		FAAE904A28FEE54F001A0835 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE904928FEE54F001A0835 /* CustomTextField.swift */; };
+		FAAE904E28FEEB0C001A0835 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE904D28FEEB0C001A0835 /* Factory.swift */; };
+		FAAE905028FEEB41001A0835 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE904F28FEEB41001A0835 /* FeedCoordinator.swift */; };
+		FAAE905228FEEB73001A0835 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905128FEEB73001A0835 /* RootCoordinator.swift */; };
+		FAAE905428FEF002001A0835 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905328FEF002001A0835 /* ProfileCoordinator.swift */; };
+		FAAE905628FEF078001A0835 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905528FEF078001A0835 /* TabBarController.swift */; };
 		FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAA28AE90640013399D /* PostsArray.swift */; };
 		FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */; };
 		FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */; };
@@ -83,6 +88,11 @@
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FAAC248228D36B4100FD1331 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 		FAAE904928FEE54F001A0835 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		FAAE904D28FEEB0C001A0835 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		FAAE904F28FEEB41001A0835 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		FAAE905128FEEB73001A0835 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		FAAE905328FEF002001A0835 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		FAAE905528FEF078001A0835 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FAB04BAA28AE90640013399D /* PostsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsArray.swift; sourceTree = "<group>"; };
 		FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,9 +153,8 @@
 		FA38CE01287ED70C00D07799 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
-				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
-				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
+				FAAE905828FF0D3F001A0835 /* ApplicationLayer */,
+				FAAE904C28FEEA7C001A0835 /* Coordinator */,
 				FAAD974828F6AAFB00F23929 /* Feed */,
 				FAB9EAD328F5E5CB009D2BA0 /* Customization */,
 				FAB9EAD228F5E59E009D2BA0 /* Posts */,
@@ -154,6 +163,7 @@
 				FAE2DE0D28E2E1DD004CCC3D /* Login */,
 				FA467C4528D216BA0040331E /* User */,
 				FA38CE0B287ED70E00D07799 /* Assets.xcassets */,
+				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
 				FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */,
 				FA38CE10287ED70E00D07799 /* Info.plist */,
 			);
@@ -174,9 +184,9 @@
 		FA6CA309288701EA00A65993 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FAAE905928FF0DF8001A0835 /* Model */,
+				FAAE905A28FF0EC3001A0835 /* View */,
 				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
-				FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */,
-				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -188,6 +198,44 @@
 				FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		FAAE904C28FEEA7C001A0835 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FAAE904D28FEEB0C001A0835 /* Factory.swift */,
+				FAAE904F28FEEB41001A0835 /* FeedCoordinator.swift */,
+				FAAE905128FEEB73001A0835 /* RootCoordinator.swift */,
+				FAAE905328FEF002001A0835 /* ProfileCoordinator.swift */,
+				FAAE905528FEF078001A0835 /* TabBarController.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FAAE905828FF0D3F001A0835 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
+				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		FAAE905928FF0DF8001A0835 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAB04BAA28AE90640013399D /* PostsArray.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAAE905A28FF0EC3001A0835 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
+				FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FAB04BD828BE265E0013399D /* Gallery */ = {
@@ -204,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				FAF51F9928804221003A1397 /* PostViewController.swift */,
-				FAB04BAA28AE90640013399D /* PostsArray.swift */,
 				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
 			);
 			path = Posts;
@@ -364,6 +411,7 @@
 				FA467C4428D2102C0040331E /* User.swift in Sources */,
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FAB9EACD28F5AA73009D2BA0 /* CustomButton.swift in Sources */,
+				FAAE904E28FEEB0C001A0835 /* Factory.swift in Sources */,
 				FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
 				FAAE904A28FEE54F001A0835 /* CustomTextField.swift in Sources */,
@@ -373,6 +421,7 @@
 				FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */,
 				FA467C4928D217590040331E /* CurrentUserService.swift in Sources */,
 				FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */,
+				FAAE905628FEF078001A0835 /* TabBarController.swift in Sources */,
 				FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */,
 				FAB04BD528BD26CD0013399D /* PhotosTableViewCell.swift in Sources */,
 				FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */,
@@ -382,8 +431,11 @@
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,
 				FAB9EACF28F5CD42009D2BA0 /* FeedModel.swift in Sources */,
 				FAB04BDA28BE26BC0013399D /* PhotosCollectionViewCell.swift in Sources */,
+				FAAE905228FEEB73001A0835 /* RootCoordinator.swift in Sources */,
+				FAAE905028FEEB41001A0835 /* FeedCoordinator.swift in Sources */,
 				FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */,
 				FAE2DE1528EAE82A004CCC3D /* MyLoginFactory.swift in Sources */,
+				FAAE905428FEF002001A0835 /* ProfileCoordinator.swift in Sources */,
 				FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
