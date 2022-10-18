@@ -11,7 +11,6 @@
 		FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */; };
 		FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2C287F202100972DA9 /* ProfileViewController.swift */; };
 		FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE02287ED70C00D07799 /* AppDelegate.swift */; };
-		FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE06287ED70C00D07799 /* ViewController.swift */; };
 		FA38CE0C287ED70E00D07799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0B287ED70E00D07799 /* Assets.xcassets */; };
 		FA38CE0F287ED70E00D07799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA38CE0D287ED70E00D07799 /* LaunchScreen.storyboard */; };
 		FA467C4428D2102C0040331E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA467C4328D2102C0040331E /* User.swift */; };
@@ -20,6 +19,7 @@
 		FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CA307288701C100A65993 /* ProfileHeaderView.swift */; };
 		FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7CA1288072A90020EF5E /* InfoViewController.swift */; };
 		FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC248228D36B4100FD1331 /* TestUserService.swift */; };
+		FAAE904A28FEE54F001A0835 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE904928FEE54F001A0835 /* CustomTextField.swift */; };
 		FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAA28AE90640013399D /* PostsArray.swift */; };
 		FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */; };
 		FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */; };
@@ -72,7 +72,6 @@
 		FA32BF2C287F202100972DA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA38CDFF287ED70C00D07799 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA38CE02287ED70C00D07799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA38CE06287ED70C00D07799 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA38CE0B287ED70E00D07799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA38CE0E287ED70E00D07799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA38CE10287ED70E00D07799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		FA9B7C9F288067D70020EF5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FA9B7CA1288072A90020EF5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		FAAC248228D36B4100FD1331 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
+		FAAE904928FEE54F001A0835 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FAB04BAA28AE90640013399D /* PostsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsArray.swift; sourceTree = "<group>"; };
 		FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
 				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
 				FA9B7CA1288072A90020EF5E /* InfoViewController.swift */,
-				FA38CE06287ED70C00D07799 /* ViewController.swift */,
 				FAAD974828F6AAFB00F23929 /* Feed */,
 				FAB9EAD328F5E5CB009D2BA0 /* Customization */,
 				FAB9EAD228F5E59E009D2BA0 /* Posts */,
@@ -215,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */,
+				FAAE904928FEE54F001A0835 /* CustomTextField.swift */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -365,8 +365,8 @@
 				FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */,
 				FAB9EACD28F5AA73009D2BA0 /* CustomButton.swift in Sources */,
 				FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */,
-				FA38CE07287ED70C00D07799 /* ViewController.swift in Sources */,
 				FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */,
+				FAAE904A28FEE54F001A0835 /* CustomTextField.swift in Sources */,
 				FA467C4728D216EF0040331E /* UserService.swift in Sources */,
 				FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */,
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
