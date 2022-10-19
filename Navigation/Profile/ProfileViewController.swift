@@ -11,11 +11,17 @@ import StorageService
 class ProfileViewController: UIViewController {
     
 //    let coordinator: ProfileCoordinator
-    var currentUser: User
+//    var currentUser: User
+//
+//    init(currentUser: User) {
+//        self.currentUser = currentUser
+////        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
+//        super.init(nibName: nil, bundle: nil)
+//    }
+    let profileViewModel: ProfileViewModel
     
-    init(currentUser: User) {
-        self.currentUser = currentUser
-//        print("pvc", currentUser.userLogin, currentUser.userName, currentUser.userStatus)
+    init(profileViewModel: ProfileViewModel) {
+        self.profileViewModel = profileViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,22 +37,22 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "PostCell")
-        tableView.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileTableHeaderViewId")
+        tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "ProfileHeaderView")
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotoTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
         
-    private lazy var posts: [Post] = []
+//    private lazy var posts: [Post] = []
     
-    private lazy var profileHeaderView = ProfileHeaderView()
+//    private lazy var profileHeaderView = ProfileHeaderView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
         self.setupViewProfile()
-        self.posts = PostsArray.shared.data
+        self.profileViewModel.posts = PostsArray.shared.data
         self.tableView.reloadData()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -73,15 +79,15 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return self.posts.count
+            return self.profileViewModel.posts.count
         }
         return 1
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileTableHeaderViewId") as? ProfileTableHeaderView {
-            headerView.profileHeaderView.setUserDetails(userData: currentUser)
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView {
+            headerView.setUserDetails(userData: profileViewModel.currentUser)
             return headerView
         } else {
             preconditionFailure("user not exist")
@@ -102,7 +108,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
             return cell
         }
-        let post = self.posts[indexPath.row]
+        let post = self.profileViewModel.posts[indexPath.row]
         cell.setup(width: post)
         return cell
     }

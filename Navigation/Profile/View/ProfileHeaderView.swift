@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileHeaderView: UITableViewHeaderFooterView {
     
     private lazy var bgAnimation: UIView = {
         let avaAnimation = UIView()
@@ -26,7 +26,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    private lazy var avatarImage: UIImageView = {
+    lazy var avatarImage: UIImageView = {
         let imageView = UIImageView()
 //        imageView.image = user.userAvatar
         imageView.backgroundColor = .darkGray
@@ -35,7 +35,7 @@ class ProfileHeaderView: UIView {
         return imageView
     }()
     
-    private lazy var userName: UILabel = {
+    lazy var userName: UILabel = {
         let userName = UILabel()
         userName.text = "Demo"
         userName.textColor = .black
@@ -46,7 +46,7 @@ class ProfileHeaderView: UIView {
     
     private var statusText: String?
 
-    private lazy var userStatus: UILabel = {
+    lazy var userStatus: UILabel = {
         let userStatus = UILabel()
         userStatus.text = self.statusText ?? "Demo status"
         userStatus.textColor = .darkGray
@@ -71,12 +71,16 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        self.setupView()
+//        self.buttonTap()
+//    }
+    override init (reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.setupView()
         self.buttonTap()
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

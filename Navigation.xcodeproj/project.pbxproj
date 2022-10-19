@@ -25,6 +25,8 @@
 		FAAE905228FEEB73001A0835 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905128FEEB73001A0835 /* RootCoordinator.swift */; };
 		FAAE905428FEF002001A0835 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905328FEF002001A0835 /* ProfileCoordinator.swift */; };
 		FAAE905628FEF078001A0835 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905528FEF078001A0835 /* TabBarController.swift */; };
+		FAAE905B28FFF112001A0835 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
+		FAAE905D28FFF2AB001A0835 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE905C28FFF2AB001A0835 /* ProfileViewModel.swift */; };
 		FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAA28AE90640013399D /* PostsArray.swift */; };
 		FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */; };
 		FAB04BAF28AF75CD0013399D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */; };
@@ -37,7 +39,6 @@
 		FAC4DA9728C9F51A0089117A /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC4DA9628C9F51A0089117A /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC4DA9A28C9F51A0089117A /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; };
 		FAC4DA9B28C9F51A0089117A /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FAC4DA9F28C9F5420089117A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B7C9F288067D70020EF5E /* Post.swift */; };
 		FAE2DE0C28E2DF10004CCC3D /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE0B28E2DF10004CCC3D /* Checker.swift */; };
 		FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE0E28E2E219004CCC3D /* LoginViewControllerDelegate.swift */; };
 		FAE2DE1128E70585004CCC3D /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE2DE1028E70585004CCC3D /* LoginInspector.swift */; };
@@ -93,6 +94,7 @@
 		FAAE905128FEEB73001A0835 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		FAAE905328FEF002001A0835 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		FAAE905528FEF078001A0835 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FAAE905C28FFF2AB001A0835 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FAB04BAA28AE90640013399D /* PostsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsArray.swift; sourceTree = "<group>"; };
 		FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,7 +159,6 @@
 				FAAE904C28FEEA7C001A0835 /* Coordinator */,
 				FAAD974828F6AAFB00F23929 /* Feed */,
 				FAB9EAD328F5E5CB009D2BA0 /* Customization */,
-				FAB9EAD228F5E59E009D2BA0 /* Posts */,
 				FAB04BD828BE265E0013399D /* Gallery */,
 				FA6CA309288701EA00A65993 /* Profile */,
 				FAE2DE0D28E2E1DD004CCC3D /* Login */,
@@ -187,6 +188,7 @@
 				FAAE905928FF0DF8001A0835 /* Model */,
 				FAAE905A28FF0EC3001A0835 /* View */,
 				FA32BF2C287F202100972DA9 /* ProfileViewController.swift */,
+				FAAE905C28FFF2AB001A0835 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -224,6 +226,7 @@
 		FAAE905928FF0DF8001A0835 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA9B7C9F288067D70020EF5E /* Post.swift */,
 				FAB04BAA28AE90640013399D /* PostsArray.swift */,
 			);
 			path = Model;
@@ -232,6 +235,8 @@
 		FAAE905A28FF0EC3001A0835 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF51F9928804221003A1397 /* PostViewController.swift */,
+				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
 				FA6CA307288701C100A65993 /* ProfileHeaderView.swift */,
 				FAB04BAC28AE97F00013399D /* ProfileTableHeaderView.swift */,
 			);
@@ -248,15 +253,6 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
-		FAB9EAD228F5E59E009D2BA0 /* Posts */ = {
-			isa = PBXGroup;
-			children = (
-				FAF51F9928804221003A1397 /* PostViewController.swift */,
-				FAB04BAE28AF75CD0013399D /* PostTableViewCell.swift */,
-			);
-			path = Posts;
-			sourceTree = "<group>";
-		};
 		FAB9EAD328F5E5CB009D2BA0 /* Customization */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,7 +265,6 @@
 		FAC4DA9528C9F51A0089117A /* StorageService */ = {
 			isa = PBXGroup;
 			children = (
-				FA9B7C9F288067D70020EF5E /* Post.swift */,
 				FAC4DA9628C9F51A0089117A /* StorageService.h */,
 			);
 			path = StorageService;
@@ -417,12 +412,14 @@
 				FAAE904A28FEE54F001A0835 /* CustomTextField.swift in Sources */,
 				FA467C4728D216EF0040331E /* UserService.swift in Sources */,
 				FA6CA308288701C100A65993 /* ProfileHeaderView.swift in Sources */,
+				FAAE905B28FFF112001A0835 /* Post.swift in Sources */,
 				FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */,
 				FAB04BAB28AE90640013399D /* PostsArray.swift in Sources */,
 				FA467C4928D217590040331E /* CurrentUserService.swift in Sources */,
 				FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */,
 				FAAE905628FEF078001A0835 /* TabBarController.swift in Sources */,
 				FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */,
+				FAAE905D28FFF2AB001A0835 /* ProfileViewModel.swift in Sources */,
 				FAB04BD528BD26CD0013399D /* PhotosTableViewCell.swift in Sources */,
 				FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */,
 				FAE2DE1328EAE791004CCC3D /* LoginFactory.swift in Sources */,
@@ -444,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC4DA9F28C9F5420089117A /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +585,6 @@
 		FA38CE14287ED70E00D07799 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -617,7 +612,6 @@
 		FA38CE15287ED70E00D07799 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

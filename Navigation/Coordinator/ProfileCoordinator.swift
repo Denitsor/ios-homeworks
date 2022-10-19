@@ -24,7 +24,8 @@ import UIKit
             let userService = CurrentUserService()
         #endif
          
-         let profileVC = ProfileViewController(currentUser: userService.user)
+         let profileViewModel = ProfileViewModel(currentUser: userService.user)
+         let profileVC = ProfileViewController(profileViewModel: profileViewModel)
          navigationController.pushViewController(profileVC, animated: true)
      }
  }
