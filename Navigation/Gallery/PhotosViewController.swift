@@ -10,11 +10,13 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    let imagePublisherFacade = ImagePublisherFacade()
+//    let imagePublisherFacade = ImagePublisherFacade()
     
     let dataGallery = (1...20).map { String($0) }
     
     var dataGallery2: [UIImage] = []
+    
+    var dataGalleryProcessed: [UIImage] = []
     
     func addImagesGallery2() {
         for item in dataGallery {
@@ -22,6 +24,9 @@ class PhotosViewController: UIViewController {
 //            print(item)
         }
     }
+    private var timer: Timer?
+    private var countTime: Double = 0
+    let imageProcessor = ImageProcessor()
     
     private enum Constants {
         static let numberOfItemInLine: CGFloat = 3
@@ -52,17 +57,54 @@ class PhotosViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(self.photoGallery)
         setupView()
+        startTimer()
         addImagesGallery2()
-        imagePublisherFacade.subscribe(self)
-        imagePublisherFacade.addImagesWithTimer(time: 0.6, repeat: dataGallery2.count, userImages: dataGallery2)
+        imageProcessor.processImagesOnThread(
+            sourceImages: dataGallery2,
+            filter: .chrome,
+            qos: .userInteractive,
+            completion: { [self] complition in
+                for photoGal in complition {
+                    if let photoGal = photoGal {
+                        self.dataGalleryProcessed.append(UIImage(cgImage: photoGal))
+//                        print(photoGal)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.stopTimer()
+                    self.photoGallery.reloadData()
+                }
+            }
+        )
+//        imagePublisherFacade.subscribe(self)
+//        imagePublisherFacade.addImagesWithTimer(time: 0.6, repeat: dataGallery2.count, userImages: dataGallery2)
+        /// результаты
+        /// .fade - . userInteractive = 10.53
+        /// .chrome .default = 12.24
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.isHidden = true
-        imagePublisherFacade.removeSubscription(for: self)
+//        imagePublisherFacade.removeSubscription(for: self)
     }
     
+    private func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                             target: self,
+                                             selector: #selector(counter),
+                                             userInfo: nil,
+                                             repeats: true)
+    }
+    private func stopTimer() {
+        timer?.invalidate()
+        print("\(countTime)")
+    }
+    
+    @objc private func counter() {
+            countTime += 0.01
+        }
     private func setupView() {
         NSLayoutConstraint.activate([
             self.photoGallery.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -76,7 +118,9 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataGallery2.count
+//        dataGallery.count
+//        dataGallery2.count
+        dataGalleryProcessed.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,9 +149,10 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         return CGSize(width: itemWidth, height: itemWidth)
     }
 }
-extension PhotosViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        dataGallery2 = images
-        photoGallery.reloadData()
-    }
-}
+//extension PhotosViewController: ImageLibrarySubscriber {
+//    func receive(images: [UIImage]) {
+//        dataGallery2 = images
+//        photoGallery.reloadData()
+//    }
+//}
+
