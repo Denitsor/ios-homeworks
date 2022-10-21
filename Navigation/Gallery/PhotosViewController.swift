@@ -63,16 +63,16 @@ class PhotosViewController: UIViewController {
             sourceImages: dataGallery2,
             filter: .chrome,
             qos: .userInteractive,
-            completion: { [self] complition in
+            completion: { [weak self] complition in
                 for photoGal in complition {
                     if let photoGal = photoGal {
-                        self.dataGalleryProcessed.append(UIImage(cgImage: photoGal))
+                        self?.dataGalleryProcessed.append(UIImage(cgImage: photoGal))
 //                        print(photoGal)
                     }
                 }
                 DispatchQueue.main.async {
-                    self.stopTimer()
-                    self.photoGallery.reloadData()
+                    self?.stopTimer()
+                    self?.photoGallery.reloadData()
                 }
             }
         )
