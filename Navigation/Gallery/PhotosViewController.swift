@@ -57,12 +57,13 @@ class PhotosViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(self.photoGallery)
         setupView()
-        startTimer()
+//        startTimer()
+        let start = DispatchTime.now()
         addImagesGallery2()
         imageProcessor.processImagesOnThread(
             sourceImages: dataGallery2,
-            filter: .chrome,
-            qos: .userInteractive,
+            filter: .fade,
+            qos: .default,
             completion: { [weak self] complition in
                 for photoGal in complition {
                     if let photoGal = photoGal {
@@ -71,8 +72,12 @@ class PhotosViewController: UIViewController {
                     }
                 }
                 DispatchQueue.main.async {
-                    self?.stopTimer()
+//                    self?.stopTimer()
+                    let end = DispatchTime.now()
                     self?.photoGallery.reloadData()
+                    let nanoTimeResult = end.uptimeNanoseconds - start.uptimeNanoseconds
+                    let resultInterval = Double(nanoTimeResult) / 1_000_000_000
+                    print(resultInterval)
                 }
             }
         )
@@ -90,17 +95,17 @@ class PhotosViewController: UIViewController {
 //        imagePublisherFacade.removeSubscription(for: self)
     }
     
-    private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.01,
-                                             target: self,
-                                             selector: #selector(counter),
-                                             userInfo: nil,
-                                             repeats: true)
-    }
-    private func stopTimer() {
-        timer?.invalidate()
-        print("\(countTime)")
-    }
+//    private func startTimer() {
+////        timer = Timer.scheduledTimer(timeInterval: 0.01,
+////                                             target: self,
+////                                             selector: #selector(counter),
+////                                             userInfo: nil,
+////                                             repeats: true)
+//    }
+//    private func stopTimer() {
+////        timer?.invalidate()
+////        print("\(countTime)")
+//    }
     
     @objc private func counter() {
             countTime += 0.01

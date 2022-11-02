@@ -11,11 +11,13 @@ class LogInViewController: UIViewController {
     
     private var login: String?
     private var password: String?
+    private let brutForceM = BruteForce()
     
     let coordinator: ProfileCoordinator
 
     init(coordinator: ProfileCoordinator) {
         self.coordinator = coordinator
+//        self.brutForceM = brutForceM
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -71,6 +73,9 @@ class LogInViewController: UIViewController {
         loginField.clearButtonMode = .whileEditing
         loginField.delegate = self
         loginField.translatesAutoresizingMaskIntoConstraints = false
+        loginField.keyboardType = .default
+        
+        loginField.text = "admin"
         return loginField
     }()
     
@@ -89,6 +94,9 @@ class LogInViewController: UIViewController {
         passwordField.delegate = self
         passwordField.addPaddingLeft(20)
         passwordField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.keyboardType = .default
+        
+        passwordField.text = "123"
         return passwordField
     }()
     
@@ -102,6 +110,25 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         return button
+    }()
+    // задание bruteForce
+    private lazy var buttonGenPassword: UIButton = {
+        let genButton = UIButton()
+        genButton.backgroundColor = .systemPurple
+        genButton.setTitleColor(.white, for: .normal)
+        genButton.setTitle("Generate password", for: .normal)
+        genButton.addTarget(self, action: #selector(self.generatePassword), for: .touchUpInside)
+        genButton.translatesAutoresizingMaskIntoConstraints = false
+        genButton.layer.cornerRadius = 10
+        genButton.clipsToBounds = true
+        return genButton
+    }()
+    
+    private lazy var bruteActivityIndicator: UIActivityIndicatorView = {
+        let bAI = UIActivityIndicatorView()
+        bAI.style = .medium
+        bAI.translatesAutoresizingMaskIntoConstraints = false
+        return bAI
     }()
     
     override func viewDidLoad() {
@@ -130,6 +157,8 @@ class LogInViewController: UIViewController {
         self.stackFieldView.addArrangedSubview(self.loginField)
         self.stackFieldView.addArrangedSubview(self.passwordField)
         self.scrollView.addSubview(self.button)
+        self.scrollView.addSubview(self.buttonGenPassword)
+        self.scrollView.addSubview(self.bruteActivityIndicator)
         
         NSLayoutConstraint.activate([
             self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -150,9 +179,18 @@ class LogInViewController: UIViewController {
             self.button.topAnchor.constraint(equalTo: self.stackFieldView.bottomAnchor, constant: 16),
             self.button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             self.button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            self.button.heightAnchor.constraint(equalToConstant: 50)
+            self.button.heightAnchor.constraint(equalToConstant: 50),
+            
+            self.buttonGenPassword.topAnchor.constraint(equalTo: self.button.bottomAnchor, constant: 16),
+            self.buttonGenPassword.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            self.buttonGenPassword.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            self.buttonGenPassword.heightAnchor.constraint(equalToConstant: 50),
+            
+            self.bruteActivityIndicator.bottomAnchor.constraint(equalTo: self.stackFieldView.bottomAnchor, constant: -16),
+            self.bruteActivityIndicator.rightAnchor.constraint(equalTo: self.stackFieldView.rightAnchor,constant: -16)
         ])
     }
+    
     
     @objc private func didTabButton() {
         if let login = self.login, let password = self.password {
@@ -200,7 +238,28 @@ class LogInViewController: UIViewController {
         self.view.endEditing(true)
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
+    
+    @objc private func generatePassword() {
+        self.bruteActivityIndicator.startAnimating()
+        let queue = DispatchQueue(label: "ru.genpass.queue1")
+        
+        let workItem = DispatchWorkItem() {
+            func randomString(length: Int) -> String {
+              let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+              return String((0..<length).map{ _ in letters.randomElement()! })
+            }
+            self.brutForceM.bruteForce(passwordToUnlock: randomString(length: 3))
+        }
 
+        queue.async(execute: workItem)
+        
+        workItem.notify(queue: DispatchQueue.main) {
+            self.passwordField.text = self.brutForceM.password
+            self.passwordField.isSecureTextEntry = false
+            self.bruteActivityIndicator.stopAnimating()
+            print("готово")
+        }
+    }
 }
 
 extension LogInViewController: UITextFieldDelegate {

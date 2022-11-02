@@ -36,6 +36,7 @@
 		FAB8F1DC28AB8FC0002A9535 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */; };
 		FAB9EACD28F5AA73009D2BA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */; };
 		FAB9EACF28F5CD42009D2BA0 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */; };
+		FABA25E52911825D00C40182 /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA25E42911825D00C40182 /* BruteForce.swift */; };
 		FAC4DA9728C9F51A0089117A /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC4DA9628C9F51A0089117A /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC4DA9A28C9F51A0089117A /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; };
 		FAC4DA9B28C9F51A0089117A /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC4DA9428C9F51A0089117A /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -104,6 +105,7 @@
 		FAB8F1DB28AB8FC0002A9535 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FAB9EACE28F5CD42009D2BA0 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		FABA25E42911825D00C40182 /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		FAC4DA9428C9F51A0089117A /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC4DA9628C9F51A0089117A /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		FAE2DE0B28E2DF10004CCC3D /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				FAB9EACC28F5AA73009D2BA0 /* CustomButton.swift */,
 				FAAE904928FEE54F001A0835 /* CustomTextField.swift */,
+				FABA25E42911825D00C40182 /* BruteForce.swift */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				FAE2DE1328EAE791004CCC3D /* LoginFactory.swift in Sources */,
 				FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */,
 				FAE2DE1128E70585004CCC3D /* LoginInspector.swift in Sources */,
+				FABA25E52911825D00C40182 /* BruteForce.swift in Sources */,
 				FA9B7CA2288072AA0020EF5E /* InfoViewController.swift in Sources */,
 				FAB9EACF28F5CD42009D2BA0 /* FeedModel.swift in Sources */,
 				FAB04BDA28BE26BC0013399D /* PhotosCollectionViewCell.swift in Sources */,
