@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA06C96F28818A5100494A08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06C96E28818A5100494A08 /* SceneDelegate.swift */; };
+		FA0F694C2919627600B97B7E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F694B2919627600B97B7E /* NetworkService.swift */; };
+		FA0F694E2919630700B97B7E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F694D2919630700B97B7E /* AppConfiguration.swift */; };
 		FA32BF2B287F1FD100972DA9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */; };
 		FA32BF2D287F202100972DA9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32BF2C287F202100972DA9 /* ProfileViewController.swift */; };
 		FA38CE03287ED70C00D07799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38CE02287ED70C00D07799 /* AppDelegate.swift */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		FA06C96E28818A5100494A08 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FA0F694B2919627600B97B7E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FA0F694D2919630700B97B7E /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		FA32BF2A287F1FD000972DA9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA32BF2C287F202100972DA9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA38CDFF287ED70C00D07799 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +225,8 @@
 			children = (
 				FA38CE02287ED70C00D07799 /* AppDelegate.swift */,
 				FA06C96E28818A5100494A08 /* SceneDelegate.swift */,
+				FA0F694B2919627600B97B7E /* NetworkService.swift */,
+				FA0F694D2919630700B97B7E /* AppConfiguration.swift */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -422,8 +428,10 @@
 				FAE2DE0F28E2E219004CCC3D /* LoginViewControllerDelegate.swift in Sources */,
 				FAAE905628FEF078001A0835 /* TabBarController.swift in Sources */,
 				FAAC248328D36B4100FD1331 /* TestUserService.swift in Sources */,
+				FA0F694E2919630700B97B7E /* AppConfiguration.swift in Sources */,
 				FAAE905D28FFF2AB001A0835 /* ProfileViewModel.swift in Sources */,
 				FAB04BD528BD26CD0013399D /* PhotosTableViewCell.swift in Sources */,
+				FA0F694C2919627600B97B7E /* NetworkService.swift in Sources */,
 				FAB04BD728BE17CB0013399D /* PhotosViewController.swift in Sources */,
 				FAE2DE1328EAE791004CCC3D /* LoginFactory.swift in Sources */,
 				FAB04BAD28AE97F00013399D /* ProfileTableHeaderView.swift in Sources */,

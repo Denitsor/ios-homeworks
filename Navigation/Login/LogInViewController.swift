@@ -186,8 +186,8 @@ class LogInViewController: UIViewController {
             self.buttonGenPassword.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             self.buttonGenPassword.heightAnchor.constraint(equalToConstant: 50),
             
-            self.bruteActivityIndicator.bottomAnchor.constraint(equalTo: self.stackFieldView.bottomAnchor, constant: -16),
-            self.bruteActivityIndicator.rightAnchor.constraint(equalTo: self.stackFieldView.rightAnchor,constant: -16)
+            self.bruteActivityIndicator.centerYAnchor.constraint(equalTo: self.stackFieldView.centerYAnchor),
+            self.bruteActivityIndicator.centerXAnchor.constraint(equalTo: self.stackFieldView.centerXAnchor)
         ])
     }
     
@@ -239,16 +239,26 @@ class LogInViewController: UIViewController {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
+    let queue = DispatchQueue(label: "ru.genpass.queue1")
+    
     @objc private func generatePassword() {
         self.bruteActivityIndicator.startAnimating()
-        let queue = DispatchQueue(label: "ru.genpass.queue1")
+        self.buttonGenPassword.isEnabled = false
+        self.buttonGenPassword.setTitle("Generation", for: .disabled)
+        print("Клик по кнопке")
         
         let workItem = DispatchWorkItem() {
             func randomString(length: Int) -> String {
-              let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-              return String((0..<length).map{ _ in letters.randomElement()! })
+                let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                print("Генерация")
+                return String((0..<length).map{ _ in letters.randomElement()! })
             }
-            self.brutForceM.bruteForce(passwordToUnlock: randomString(length: 3))
+//            sleep(5)
+            DispatchQueue.global().sync {
+                print("старт брутфорс")
+                self.brutForceM.bruteForce(passwordToUnlock: randomString(length: 3))
+                print("конец брутфорс")
+            }
         }
 
         queue.async(execute: workItem)
@@ -257,8 +267,12 @@ class LogInViewController: UIViewController {
             self.passwordField.text = self.brutForceM.password
             self.passwordField.isSecureTextEntry = false
             self.bruteActivityIndicator.stopAnimating()
+            self.buttonGenPassword.isEnabled = true
+            self.buttonGenPassword.setTitle("Generate password", for: .normal)
+            workItem.cancel()
             print("готово")
         }
+        
     }
 }
 
