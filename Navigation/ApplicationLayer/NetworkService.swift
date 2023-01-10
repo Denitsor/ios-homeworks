@@ -11,17 +11,9 @@ struct NetworkService {
     
     static func request(for configuration: AppConfiguration) {
         
-        switch configuration {
-        case .people:
-            guard let url = URL(string: configuration.rawValue ) else {return}
-            sessionDataTask(url)
-        case .planets:
-            guard let url = URL(string: configuration.rawValue ) else {return}
-            sessionDataTask(url)
-        case .films:
-            guard let url = URL(string: configuration.rawValue ) else {return}
-            sessionDataTask(url)
-        }
+        guard let url = URL(string: configuration.rawValue ) else {return}
+        sessionDataTask(url)
+
     }
     static func sessionDataTask(_ adress: URL) {
         let session = URLSession(configuration: .default)

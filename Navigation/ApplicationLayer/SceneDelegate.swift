@@ -32,8 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        tabBarController.viewControllers = [lentaNavigationController, profileNavigationController]
 //        tabBarController.tabBar.backgroundColor = .white
 //        self.window?.rootViewController = tabBarController
-        let appConfiguration: AppConfiguration = .allCases.randomElement()!
-        NetworkService.request(for: appConfiguration)
+
+//        let appConfiguration: AppConfiguration = .allCases.randomElement()!
+//        NetworkService.request(for: appConfiguration)
         let rootCoordinator: RootCoordinator = RootCoordinatorImp()
         window?.rootViewController = rootCoordinator.startApplication()
         self.window?.makeKeyAndVisible()
