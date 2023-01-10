@@ -36,7 +36,7 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var button2: CustomButton = {
-        let button = CustomButton(title: "Перейти2", titleColor: .lightGray)
+        let button = CustomButton(title: "InfoViewController", titleColor: .lightGray)
         button.backgroundColor = .systemGreen
         return button
     }()
@@ -74,11 +74,12 @@ class FeedViewController: UIViewController {
     
     private func buttonTap() {
         let postView = PostViewController()
+        let infoView = InfoViewController()
         button.activeTap = { [self] in
            self.navigationController?.pushViewController(postView, animated: true)
         }
         button2.activeTap = { [self] in
-           self.navigationController?.pushViewController(postView, animated: true)
+           self.navigationController?.pushViewController(infoView, animated: true)
         }
         checkGuessButton.activeTap = { [self] in
             if let secredText = textField.text {
